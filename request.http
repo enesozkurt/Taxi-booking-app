@@ -1,0 +1,19 @@
+POST http://localhost:3000/passengers HTTP/1.1
+content-type: application/json
+
+{"name": "Test", "location": "Karamürsel"}
+
+###
+
+GET http://localhost:3000/passengers/633b5421d52ba5f51326c5a2 HTTP/1.1
+
+###
+
+DELETE http://localhost:3000/passengers/633b50839f0477b064258c49 HTTP/1.1
+
+###
+
+PATCH http://localhost:3000/passengers/633b5421d52ba5f51326c5a2 HTTP/1.1
+content-type: application/json
+
+{"name": "bew name2"}
