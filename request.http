@@ -17,3 +17,25 @@ PATCH http://localhost:3000/passengers/633b5421d52ba5f51326c5a2 HTTP/1.1
 content-type: application/json
 
 {"name": "bew name2"}
+
+
+###
+POST http://localhost:3000/drivers HTTP/1.1
+content-type: application/json
+
+{"name": "new driver", "location": "Karamürsel"}
+
+###
+
+DELETE http://localhost:3000/drivers/633ca4cf72d0918389e6e558 HTTP/1.1
+
+###
+
+POST http://localhost:3000/passengers/633b5421d52ba5f51326c5a2/bookings
+content-type: application/json
+
+{
+  "driverId": "633ca5f372d0918389e6e55b",
+  "origin": "Karamürsel",
+  "destination": "İzmit"
+}

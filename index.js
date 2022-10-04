@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const passengersRouter = require('./routes/passengers')
+const driversRouter = require('./routes/driver')
 const indexRouter = require('./routes/index')
 require('./mongo-connection')
 
@@ -11,6 +12,7 @@ app.set('view engine', 'pug')
 
 app.use('/', indexRouter)
 app.use('/passengers', passengersRouter)
+app.use('/drivers', driversRouter)
 
 app.listen(3000, () => {
     console.log('started listening on 3000')

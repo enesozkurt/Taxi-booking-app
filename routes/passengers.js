@@ -1,5 +1,4 @@
 const {passengerDatabase, driverDatabase} = require("../database");
-const flatted = require("flatted");
 
 const router = require('express').Router()
 
@@ -21,6 +20,7 @@ router.delete('/:passengerId', async (req, res) => {
 
 router.get('/:passengerId', async (req, res) => {
     const passenger = await passengerDatabase.find(req.params.passengerId)
+
     if (!passenger) return res.status(404).send('Cannot find passenger')
     res.render('passenger', { passenger })
 })
@@ -32,11 +32,9 @@ router.post('/:passengerId/bookings', async (req, res) => {
     const passenger = await passengerDatabase.find(passengerId)
     const driver = await driverDatabase.find(drivedId)
 
-    passenger.book(driver, origin, destination)
+    const booking = await passenger.book(driver, origin, destination)
 
-    await passengerDatabase.update(passenger)
-
-    res.send("OK")
+    res.send(booking)
 })
 
 router.patch('/:passengerId', async (req, res) => {
