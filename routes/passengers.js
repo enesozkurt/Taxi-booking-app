@@ -27,12 +27,12 @@ router.get('/:passengerId', async (req, res) => {
 
 router.post('/:passengerId/bookings', async (req, res) => {
     const { passengerId } = req.params
-    const { drivedId, origin, destination } = req.body
+    const { driverId, origin, destination } = req.body
 
     const passenger = await passengerDatabase.find(passengerId)
-    const driver = await driverDatabase.find(drivedId)
+    const driver = await driverDatabase.find(driverId)
 
-    const booking = await passenger.book(driver, origin, destination)
+    const booking = await passengerDatabase.book(driver, passenger, origin, destination)
 
     res.send(booking)
 })

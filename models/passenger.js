@@ -8,16 +8,9 @@ const PassengerSchema = new mongoose.Schema({
   bookings: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Booking',
-    autopopulate: true
+    autopopulate: { maxDepth: 2 }
   }]
 })
-
-PassengerSchema.methods.book = async function (driver, origin, destination) {
-  const booking = await Booking.create({ driver, passenger: this, origin, destination })
-  this.bookings.push(booking)
-  await this.save()
-  return booking
-}
 
 PassengerSchema.plugin(require('mongoose-autopopulate'));
 module.exports = mongoose.model('Passenger', PassengerSchema)

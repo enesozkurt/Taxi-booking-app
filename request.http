@@ -31,11 +31,18 @@ DELETE http://localhost:3000/drivers/633ca4cf72d0918389e6e558 HTTP/1.1
 
 ###
 
-POST http://localhost:3000/passengers/633b5421d52ba5f51326c5a2/bookings
+POST http://localhost:3000/passengers/633dddae16113cf4ec048b33/bookings
 content-type: application/json
 
 {
   "driverId": "633ca5f372d0918389e6e55b",
-  "origin": "Karamürsel",
-  "destination": "İzmit"
+  "origin": "İstanbul",
+  "destination": "Ankara"
 }
+
+###
+
+PATCH http://localhost:3000/drivers/633ca5f372d0918389e6e55b HTTP/1.1
+content-type: application/json
+
+{"name": "updated name"}
