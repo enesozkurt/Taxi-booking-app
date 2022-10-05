@@ -1,4 +1,4 @@
-class BaseDatabase {
+class BaseService {
   constructor(model) {
     this.model = model
   }
@@ -33,4 +33,4 @@ class BaseDatabase {
   }
 }
 
-module.exports = BaseDatabase
+module.exports = BaseService

@@ -3,7 +3,7 @@ const Booking = require('./booking')
 const mongoose = require('mongoose')
 
 const PassengerSchema = new mongoose.Schema({
-  name: String,
+  name: { type: String, required: true, minLength: 2 },
   location: String,
   bookings: [{
     type: mongoose.Schema.Types.ObjectId,

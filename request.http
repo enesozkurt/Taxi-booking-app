@@ -23,7 +23,7 @@ content-type: application/json
 POST http://localhost:3000/drivers HTTP/1.1
 content-type: application/json
 
-{"name": "new driver", "location": "Karamürsel"}
+{"name": "newer driver", "age": 18, "location": "Karamürsel"}
 
 ###
 
@@ -35,9 +35,9 @@ POST http://localhost:3000/passengers/633dddae16113cf4ec048b33/bookings
 content-type: application/json
 
 {
-  "driverId": "633ca5f372d0918389e6e55b",
-  "origin": "İstanbul",
-  "destination": "Ankara"
+  "driverId": "633de86a2b5dbff0c00d4895",
+  "origin": "Ankara",
+  "destination": "Antalya"
 }
 
 ###
@@ -45,4 +45,4 @@ content-type: application/json
 PATCH http://localhost:3000/drivers/633ca5f372d0918389e6e55b HTTP/1.1
 content-type: application/json
 
-{"name": "updated name"}
+{"name": "new name"}
