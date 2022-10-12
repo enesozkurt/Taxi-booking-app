@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node fetch-records.js",
     "watch": "nodemon --ignore '*.json'",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test-watch": "jest --watch"
   },
   "author": "Enes Özkurt",
   "license": "ISC",
@@ -21,6 +22,7 @@
     "uuid": "^7.0.2"
   },
   "devDependencies": {
+    "jest": "^29.1.2",
     "nodemon": "^2.0.2"
   }
 }
