@@ -11,12 +11,10 @@ app.use(bodyParser.json())
 
 app.set('view engine', 'pug')
 
-app.use('/', indexRouter)
 app.use('/passengers', passengersRouter)
 app.use('/drivers', driversRouter)
 app.use('/bookings', bookingsRouter)
+app.use('/', indexRouter)
 
-app.listen(3000, () => {
-    console.log('started listening on 3000')
-})
+module.exports = app
 

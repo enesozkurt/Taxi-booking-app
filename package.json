@@ -2,12 +2,12 @@
   "name": "Taxi-booking app",
   "version": "1.0.0",
   "description": "In-class examples for week-3",
-  "main": "fetch-records.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node fetch-records.js",
-    "watch": "nodemon --ignore '*.json'",
-    "test": "jest",
-    "test-watch": "jest --watch"
+    "start": "node .bin/www",
+    "watch": "nodemon --ignore '*.json .bin/www",
+    "test": "jest --coverage --verbose",
+    "test-watch": "jest --coverage --verbose --watch"
   },
   "author": "Enes Özkurt",
   "license": "ISC",
@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "jest": "^29.1.2",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "supertest": "^6.3.0"
   }
 }
