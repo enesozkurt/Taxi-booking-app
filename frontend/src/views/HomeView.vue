@@ -1,18 +1,31 @@
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'HomeView',
-  components: {
-    HelloWorld
+  data () {
+    return {
+      isLoading: true,
+      passengers: []
+    }
+  },
+  async mounted () {
+    this.passengers = await this.fetchPassengers()
+    this.isLoading = false
+  },
+  methods: {
+    ...mapActions(['fetchPassengers'])
   }
 }
 </script>
 
-<template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<template lang="pug">
+.home
+  h1 Passengers
+  p(v-if="isLoading") Please wait...
+  div(v-else)
+    p There are {{ passengers.length }} passengers waiting.
+    ol
+      li(v-for="passenger in passengers")
+        a(:href="`/passengers/${passenger._id}`") {{ passenger.name }}
 </template>

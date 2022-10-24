@@ -3,8 +3,7 @@ const {passengerService, driverService} = require("../services");
 const router = require('express').Router()
 
 router.get('/', async (req, res) => {
-    const passengers = await passengerService.load()
-    res.render('passengers', {passengers})
+    res.send(await passengerService.load())
 })
 
 router.post('/', async (req, res, next) => {
