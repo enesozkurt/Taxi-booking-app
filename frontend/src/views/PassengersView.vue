@@ -2,7 +2,7 @@
 import { mapActions } from 'vuex'
 
 export default {
-  name: 'HomeView',
+  name: 'PassengersView',
   data () {
     return {
       isLoading: true,

@@ -25,7 +25,7 @@ router.get('/:passengerId', async (req, res) => {
     const passenger = await passengerService.find(req.params.passengerId)
 
     if (!passenger) return res.status(404).send('Cannot find passenger')
-    res.render('passenger', { passenger })
+    res.send(passenger)
 })
 
 router.post('/:passengerId/bookings', async (req, res) => {
